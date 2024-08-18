@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Routes</title>
+    <style>
+        /* Additional styles specific to page1 */
+        .page-header {
+            background-color: #06BF9D; /* Consistent green */
+            color: #000000;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 8px #02402E;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .route-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four columns for the first two rows */
+            gap: 20px; /* Space between buttons */
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Center the last two buttons and make them span two columns each */
+        .route-list button:nth-last-child(-n+2) {
+            grid-column: span 2;
+        }
+
+        .route-item {
+            background-color: #97ccf0;
+            border: 1px solid #726b6b;
+            border-radius: 5px;
+            padding: 25px; /* Enlarged padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            font-size: 1.6em; /* Enlarged font size */
+            color: #02402E;
+        }
+
+        .route-item:hover {
+            background-color: #aae8f0;
+            transform: scale(1.02);
+        }
+
+        /* Adjust grid for smaller screens */
+        @media (max-width: 768px) {
+            .route-list {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+            }
+
+            .route-list button:nth-last-child(-n+2) {
+                grid-column: span 1; /* Adjust for smaller screens */
+            }
+        }
+
+        .back-button {
+            padding: 15px 30px; /* Enlarged padding */
+            background-color: #008CBA; /* Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            font-size: 1.2em; /* Enlarged font size */
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 40px; /* Increased margin to move down */
+        }
+
+        .back-button:hover {
+            background-color: #005f7f;
+            transform: scale(1.05);
+        }
+
+        footer {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 10px 0; /* Adjust padding if needed */
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>Fixed Routes</h1>
+    </header>
+
+    <main class="content">
+        <div class="route-list">
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_CBY.pdf')">RMA to CBY</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_PLY_via_CBY.pdf')">RMA to PLY via CBY</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_AMP.pdf')">RMA to AMP</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_KGL.pdf')">RMA to KGL</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_PLY.pdf')">RMA to PLY</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_HIN.pdf')">RMA to HIN</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_ANU.pdf')">RMA to ANU</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_BCL.pdf')">RMA to BCL</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_VNA.pdf')">RMA to VNA</button>
+            <button class="route-item" onclick="openPDF('Fixed_routes_pdf_files/RMA_to_SGR.pdf')">RMA to SGR</button>
+        </div>
+        <button class="back-button" onclick="window.history.back()">Back</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Central Air OPS Room. Sri Lanka Air Force</p>
+    </footer>
+
+    <script>
+        // Function to open PDF files
+        function openPDF(pdfUrl) {
+            window.open(pdfUrl, '_blank'); // Open PDF in a new tab or window
+        }
+    </script>
+</body>
+</html>
